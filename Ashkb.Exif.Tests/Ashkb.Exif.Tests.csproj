@@ -15,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Resources\Image.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\InvalidImage.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
