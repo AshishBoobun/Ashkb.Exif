@@ -14,4 +14,10 @@
     <ProjectReference Include="..\Ashkb.Exif\Ashkb.Exif.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resources\InvalidImage.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
