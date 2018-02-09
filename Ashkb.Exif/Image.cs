@@ -1,8 +1,7 @@
-﻿using Ashkb.Exif.Model;
-using System;
-using System.IO;
+﻿using System.IO;
 using Ashkb.Exif.Enums;
 using Ashkb.Exif.Error;
+using Ashkb.Exif.Model;
 
 namespace Ashkb.Exif
 {
@@ -22,12 +21,7 @@ namespace Ashkb.Exif
 
     public static ImageInfo GetImageInfo(Stream imageStream)
     {
-      imageStream.Seek(0, SeekOrigin.Begin);
-
-      byte[] header = new byte[2];
-      imageStream.Read(header, 0, header.Length);
-
-      if (Utility.Combine(header[0], header[1]) == (int)JpegMarker.StartOfImage)
+      if (Utility.IsJpeg(imageStream))
       {
         int p = 1;
         //TODO parse jpeg
