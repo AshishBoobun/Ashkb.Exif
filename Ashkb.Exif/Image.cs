@@ -23,7 +23,6 @@ namespace Ashkb.Exif
     {
       if (Utility.IsJpeg(imageStream))
       {
-        int p = 1;
         //TODO parse jpeg
         return null;
       }

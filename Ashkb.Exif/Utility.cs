@@ -3,30 +3,23 @@ using Ashkb.Exif.Enums;
 
 namespace Ashkb.Exif
 {
-    public static class Utility
+  public static class Utility
+  {
+    public static bool IsJpeg(Stream stream)
     {
-      public static int Combine(byte b1, byte b2)
-      {
-        
-        int combined = b1 << 8 | b2;
-        return combined;
-      }
+      var start = new byte[2];
+      var ending = new byte[2];
 
-      public static bool IsJpeg(Stream stream)
-      {
-        byte[] header = new byte[2];
-        byte[] ending = new byte[2];
+      stream.Seek(0, SeekOrigin.Begin);
+      stream.Read(start, 0, start.Length);
 
-        stream.Seek(0, SeekOrigin.Begin);
-        stream.Read(header, 0, header.Length);
+      stream.Seek(stream.Length - 2, SeekOrigin.Begin);
+      stream.Read(ending, 0, ending.Length);
 
-        stream.Seek(stream.Length - 2, SeekOrigin.Begin);
-        stream.Read(ending, 0, ending.Length);
+      var isJpeg = start[0] == (int) JpegMarker.MarkerPrefix && ending[0] == (int) JpegMarker.MarkerPrefix &&
+                   start[1] == (int) JpegMarker.StartOfImage && ending[1] == (int) JpegMarker.EndOfImage;
 
-        var isJpeg = Combine(header[0], header[1]) == (int)JpegMarker.StartOfImage &&
-                     Combine(ending[0], ending[1]) == (int)JpegMarker.EndOfImage;
-
-        return isJpeg;
-      }
+      return isJpeg;
     }
+  }
 }
