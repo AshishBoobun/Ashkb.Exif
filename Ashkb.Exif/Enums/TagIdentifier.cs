@@ -33,9 +33,6 @@
     Make = 271,
     Model = 272,
     Software = 305,
-    Artist = 315,
-
-
-
+    Artist = 315
   }
 }

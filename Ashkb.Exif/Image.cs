@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using Ashkb.Exif.Enums;
 using Ashkb.Exif.Error;
 using Ashkb.Exif.Model;
 
@@ -11,7 +10,7 @@ namespace Ashkb.Exif
     {
       ImageInfo imageInfo;
 
-      using (var stream = new FileStream(path,FileMode.Open, FileAccess.Read, FileShare.Read))
+      using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
       {
         imageInfo = GetImageInfo(stream);
       }
