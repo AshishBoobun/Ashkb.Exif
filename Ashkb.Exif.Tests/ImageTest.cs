@@ -10,8 +10,7 @@ namespace Ashkb.Exif.Tests
     [TestMethod]
     public void GetImageInfo_InvalidImageFile()
     {
-      var invalidJpegFile = Path.Combine(Directory.GetCurrentDirectory(), "Resources", "InvalidImage.txt");
-      Assert.ThrowsException<InvalidImageFormatException>(() => Image.GetImageInfo(invalidJpegFile));
+      Assert.ThrowsException<InvalidImageFormatException>(() => Image.GetImageInfo(Constants.InvalidImagePath));
     }
 
     [TestMethod]
@@ -23,9 +22,7 @@ namespace Ashkb.Exif.Tests
     [TestMethod]
     public void GetImageInfo_ValidJpeg_DoesNotThrowException()
     {
-      var jpegPath = Path.Combine(Directory.GetCurrentDirectory(), "Resources", "Image.jpg");
-
-      var result = Image.GetImageInfo(jpegPath);
+      var result = Image.GetImageInfo(Constants.JpegImagePath);
 
       Assert.IsNotNull(result);
     }

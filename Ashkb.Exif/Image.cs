@@ -20,7 +20,7 @@ namespace Ashkb.Exif
 
     public static ImageInfo GetImageInfo(Stream imageStream)
     {
-      if (Utility.IsJpeg(imageStream))
+      if (Utility.StreamContainsJpegSoiEoiMarker(imageStream))
       {
         //TODO parse jpeg
         return null;
