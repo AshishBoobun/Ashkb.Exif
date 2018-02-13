@@ -12,14 +12,18 @@ namespace Ashkb.Exif.Tests
     {
       var invalidJpegStream = new FileStream(Constants.InvalidImagePath, FileMode.Open, FileAccess.Read, FileShare.Read);
       var veryShortStream = new MemoryStream(Encoding.UTF8.GetBytes("er"));
+      var closedStream = new MemoryStream();
+      closedStream.Dispose();
 
       var nullStreamResult = Utility.StreamContainsJpegSoiEoiMarker(null);
       var invalidJpegStreamResult = Utility.StreamContainsJpegSoiEoiMarker(invalidJpegStream);
       var veryShortStreamResult = Utility.StreamContainsJpegSoiEoiMarker(veryShortStream);
+      var closeStreamResult = Utility.StreamContainsJpegSoiEoiMarker(closedStream);
 
       Assert.IsFalse(nullStreamResult);
       Assert.IsFalse(invalidJpegStreamResult);
       Assert.IsFalse(veryShortStreamResult);
+      Assert.IsFalse(closeStreamResult);
 
       invalidJpegStream.Dispose();
       veryShortStream.Dispose();

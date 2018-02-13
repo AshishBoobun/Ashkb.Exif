@@ -9,7 +9,7 @@ namespace Ashkb.Exif
     {
       var streamContainsJpegSoiEoiMarker = false;
 
-      if (stream != null && stream.Length >= 4)
+      if (stream != null && stream.CanSeek && stream.Length >= 4)
       {
         var start = new byte[2];
         var ending = new byte[2];
