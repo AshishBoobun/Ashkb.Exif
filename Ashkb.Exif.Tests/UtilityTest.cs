@@ -41,6 +41,19 @@ namespace Ashkb.Exif.Tests
       var validJpegStreamResult = Utility.StreamContainsJpegSoiEoiMarker(validJpegStream);
 
       Assert.IsTrue(validJpegStreamResult);
+
+      validJpegStream.Dispose();
+    }
+
+    [TestMethod]
+    public void Combine_TwoByte_CorrectlyReturnValue()
+    {
+      byte b1 = 0xA7;
+      byte b2 = 0xF8;
+
+      var result = Utility.Combine(b1, b2);
+
+      Assert.AreEqual(0xA7F8, result);
     }
   }
 }

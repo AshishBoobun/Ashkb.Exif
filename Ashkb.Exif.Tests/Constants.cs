@@ -8,5 +8,7 @@ namespace Ashkb.Exif.Tests
       Path.Combine(Directory.GetCurrentDirectory(), "Resources", "InvalidImage.txt");
 
     public static readonly string JpegImagePath = Path.Combine(Directory.GetCurrentDirectory(), "Resources", "Image.jpg");
+
+    public static readonly string TiffSamplePath = Path.Combine(Directory.GetCurrentDirectory(), "Resources", "Tiff", "sample.tiff");
   }
 }

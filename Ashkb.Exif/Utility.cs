@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Net.NetworkInformation;
 using Ashkb.Exif.Enums;
 
 namespace Ashkb.Exif
@@ -28,6 +29,12 @@ namespace Ashkb.Exif
 
 
       return streamContainsJpegSoiEoiMarker;
+    }
+
+    public static int Combine(byte b1, byte b2)
+    {
+      int combined = b1 << 8 | b2;
+      return combined;
     }
   }
 }
