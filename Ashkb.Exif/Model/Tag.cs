@@ -17,7 +17,7 @@ namespace Ashkb.Exif.Model
     /// <summary>
     ///   Data format type for tag
     /// </summary>
-    public DataFormat Format { get; set; }
+    public FieldType Format { get; set; }
 
     /// <summary>
     ///   The value for the current exif tag
