@@ -14,7 +14,7 @@ namespace Ashkb.Exif
       return BitConverter.ToUInt32(valueEndianess, 0);
     }
 
-    public static uint ToUInt16(byte[] value, int startIndex, ByteOrder from, ByteOrder to)
+    public static ushort ToUInt16(byte[] value, int startIndex, ByteOrder from, ByteOrder to)
     {
       var valueEndianess = CheckEndianessValue(value, startIndex, from, to, 2);
       return BitConverter.ToUInt16(valueEndianess, 0);
