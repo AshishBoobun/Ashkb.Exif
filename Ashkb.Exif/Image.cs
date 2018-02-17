@@ -26,6 +26,12 @@ namespace Ashkb.Exif
         return null;
       }
 
+      if (TiffHeader.TryParse(imageStream, 0, out TiffHeader header))
+      {
+        //TODO Parse TIFF files.
+        return null;
+      }
+
       throw new InvalidImageFormatException();
     }
   }
